@@ -6,7 +6,8 @@ const StaffSchema = new mongoose.Schema({
     department:{type:String,required:true},
     email:{type:String,required:true,unique:true},
     img:{type:String},
-    password:{type:String,required:true}
+    password:{type:String,required:true},
+    isAdmin:{type:String,default:false}
 },{timestamps:true})
 
 export default mongoose.model("Staff",StaffSchema)
