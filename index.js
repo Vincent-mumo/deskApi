@@ -38,7 +38,7 @@ mongoose.connection.on("disconnected",() => {
 app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
-app.use(cors({origin: ["https://deskClient.netlify.app"],credentials: true}));
+app.use(cors({origin: ["https://deskclient.netlify.app"],credentials: true}));
 app.use(cookieParser())
 
 //endpoints for accessing the API
