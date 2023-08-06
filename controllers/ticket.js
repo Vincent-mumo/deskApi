@@ -46,6 +46,18 @@ export const deleteTicket = async(req,res,next) => {
     }
 }
 
+//get a specific user tickets
+export const userTickets = async(req, res, next) => {
+    try {
+        const tickets = await Ticket.find({ userId: req.params.userId }).sort({ createdAt: -1 })
+        res.status(200).json(tickets)
+
+    } catch (err) {
+        next(err)
+    }
+}
+
+
 //get all titckets 
 export const getAllTickets = async (req,res,next) => {
     try{

@@ -2,18 +2,22 @@ import express from "express";
 const router = express.Router();
 
 import { verifyAdmin,  verifyUser } from "../utils/verifyToken.js";
-import { deleteTicket, getAllTickets, getTicket, updateTicket } from "../controllers/ticket.js";
+import { createTicket, deleteTicket, getAllTickets, getTicket, updateTicket, userTickets } from "../controllers/ticket.js";
+
+//create new
+router.post("/",createTicket)
 
 //UPDATE
-router.put("/:id", verifyUser, updateTicket);
+router.put("/:id", updateTicket);
 
 //DELETE
-router.delete("/:id", verifyUser, deleteTicket);
+router.delete("/:id",  deleteTicket);
 
-//GET
-router.get("/:id", verifyUser, getTicket);
+//GET a specific user tickets
+router.get("/:userId", userTickets);
+
 
 //GET ALL
-router.get("/", verifyAdmin, getAllTickets);
+router.get("/",  getAllTickets);
 
 export default router;

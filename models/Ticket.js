@@ -4,8 +4,10 @@ const TicketSchema = new mongoose.Schema({
     userId:{type:String,required:true},
     department:{type:String,required:true},
     subject:{type:String,required:true},
+    responsible:{type:String},
     status:{type:String,default:"Pending"},
-    notes:{type:String,default:"Admin will respond with notes associated wconcerning your ticket"}
+    desc:{type:String},
+    type:{type:String,default:"new"}
 },{timestamps:true})
 
 export default mongoose.model("Ticket",TicketSchema)
