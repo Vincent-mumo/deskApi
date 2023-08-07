@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 
 import { verifyAdmin,  verifyUser } from "../utils/verifyToken.js";
-import {deleteStaff, getAllStaff, getStaff, updateStaff} from "../controllers/staff.js";
+import {deleteStaff, genderCount, getAllStaff, getStaff, updateStaff} from "../controllers/staff.js";
 
 //UPDATE
 router.put("/:id", verifyUser, updateStaff);
@@ -15,5 +15,8 @@ router.get("/:id", verifyUser, getStaff);
 
 //GET ALL
 router.get("/", verifyAdmin, getAllStaff);
+
+//count employees by gender
+router.get('/count/gender', genderCount)
 
 export default router;

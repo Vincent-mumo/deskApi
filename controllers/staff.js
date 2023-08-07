@@ -43,3 +43,19 @@ export const getAllStaff = async (req,res,next) => {
         next(err)
     }
 }
+
+//count employees based on gender 
+export const genderCount = async(req, res, next) => {
+    try {
+        const maleCount = await Staff.countDocuments({ gender: "male" })
+        const femaleCount = await Staff.countDocuments({ gender: "female" })
+
+        res.status(200).json([
+            { gender: "male", count: maleCount },
+            { gender: "female", count: femaleCount }
+        ])
+
+    } catch (err) {
+        next(err)
+    }
+}

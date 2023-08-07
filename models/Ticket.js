@@ -7,7 +7,8 @@ const TicketSchema = new mongoose.Schema({
     responsible:{type:String},
     status:{type:String,default:"Pending"},
     desc:{type:String},
-    type:{type:String,default:"new"}
+    type:{type:String,default:"new"},
+    adminNotes:{type:String}
 },{timestamps:true})
 
 export default mongoose.model("Ticket",TicketSchema)

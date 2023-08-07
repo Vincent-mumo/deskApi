@@ -38,12 +38,12 @@ mongoose.connection.on("disconnected",() => {
 app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
-app.use(cors({origin: ["https://deskclient.netlify.app"],credentials: true}));
+app.use(cors({origin: ["https://deskclient.netlify.app","http://localhost:5173","http://localhost:5174"],credentials: true}));
 app.use(cookieParser())
 
 //endpoints for accessing the API
 app.use("/api/auth", authRoute);
-app.use("/api/auth/staff",staffAuthRoute)
+app.use("/api/staffAuth",staffAuthRoute)
 app.use("/api/users", usersRoute);
 app.use("/api/staffs", staffsRoute );
 app.use("/api/tickets", ticketsRoute);
