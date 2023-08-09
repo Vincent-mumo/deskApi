@@ -39,7 +39,7 @@ app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
 app.use(cors({
-    origin: 'https://deskclient.netlify.app'
+    origin: 'deskclient.netlify.app'
 }));
 app.use(cookieParser())
 
