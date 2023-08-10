@@ -34,9 +34,19 @@ mongoose.connection.on("disconnected",() => {
     console.log("mongoDB disconnected!")
 })
 
+const allowedOrigins = ['https://desk-client.vercel.app', 'https://yourfrontenddomain.com'];
+app.use(cors({
+    origin: function(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
+
 //middlewares
 app.use(express.json())
-app.use(cors({Origin:'https://desk-client.vercel.app'}))
 app.use(helmet())
 app.use(morgan("common"))
 app.use(cookieParser())
