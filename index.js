@@ -35,7 +35,7 @@ mongoose.connection.on("disconnected",() => {
 })
 
 //middlewares
-app.use(cors({origin:"*"}))
+app.use(cors({origin:"https://deskclient.netlify.app/"}))
 app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
