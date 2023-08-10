@@ -38,7 +38,7 @@ mongoose.connection.on("disconnected",() => {
 
 //middlewares
 app.use(express.json())
-app.use(cors({origin: ["deskadmin.netlify.app", "deskclient.netlify.app"],credentials: true}));
+app.use(cors({origin: ["https://deskadmin.netlify.app", "https://deskclient.netlify.app"],credentials: true}));
 app.use(helmet())
 app.use(morgan("common"))
 app.use(cookieParser())
