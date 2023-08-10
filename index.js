@@ -35,6 +35,7 @@ mongoose.connection.on("disconnected",() => {
 })
 
 //middlewares
+app.use(cors({Origin:'https://desk-client.vercel.app'}))
 app.use(express.json())
 app.use(helmet())
 app.use(morgan("common"))
